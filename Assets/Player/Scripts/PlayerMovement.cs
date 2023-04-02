@@ -1,50 +1,35 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 3;
+    [SerializeField] private PlayerInputController input;
+    [SerializeField] private float moveSpeed = 25;
     [SerializeField] private float runSpeed = 6;
     [SerializeField] private float jumpHeight = 4;
     [SerializeField] private float gravity = 9.807f;
 
-    private PlayerInputAction _playerAction;
-    private Vector2 _moveInput;
-    private Vector3 direction = Vector3.zero;
+    private Rigidbody _rigidbody;
+    private Vector3 _playerMove = Vector3.zero;
 
 
     private void Awake()
     {
-        _playerAction = new PlayerInputAction();
-        _moveInput = _playerAction.Player.Move.ReadValue<Vector2>();
-        _playerAction.Player.Move.performed += context =>
-            _moveInput = context.ReadValue<Vector2>();
-        _moveInput.y = 0f;
+        _rigidbody = GetComponent<Rigidbody>();
     }
 
     private void FixedUpdate()
     {
+        _playerMove = new Vector3(input.MoveInput.x, 0, input.MoveInput.y);
         Move();
+        _rigidbody.AddRelativeForce(_playerMove, ForceMode.Force);
     }
 
     private void Move()
     {
-        var moveX = _moveInput.x;
-        var moveZ = _moveInput.y;
-
-        direction = new Vector3(moveX, 0, moveZ).normalized;
-        transform.Translate(direction * moveSpeed);
-    }
-
-    private void OnEnable()
-    {
-        _playerAction.Player.Enable();
-    }
-
-    private void OnDisable()
-    {
-        _playerAction.Player.Disable();
+        // make movement constant with the player mass
+        var mass = _rigidbody.mass;
+        _playerMove = new Vector3(_playerMove.x * moveSpeed * mass,
+            _playerMove.y, _playerMove.z * moveSpeed * mass);
     }
 }
