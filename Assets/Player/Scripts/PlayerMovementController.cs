@@ -3,17 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class PlayerMovementController : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 3f;
+    [SerializeField] private float walkingSpeed = 3f; 
+    [SerializeField] private float runningSpeed = 6f;
     [SerializeField] private float rotationSpeed = 10f;
 
     private Camera _mainCamera;
     private Plane _playerPlane;
 
+    public CharacterController CharacterController { get; private set; }
     private PlayerInputAction _playerInput;
-    private CharacterController _characterController;
     private Vector2 _movementInput;
     private Vector3 _playerWalkingMovement;
     private Vector3 _playerRunningMovement;
@@ -23,7 +25,7 @@ public class PlayerMovementController : MonoBehaviour
     private void Awake()
     {
         _playerInput = new PlayerInputAction();
-        _characterController = GetComponent<CharacterController>();
+        CharacterController = GetComponent<CharacterController>();
 
         _playerInput.Player.Move.started += OnMove;
         _playerInput.Player.Move.performed += OnMove;
@@ -33,19 +35,15 @@ public class PlayerMovementController : MonoBehaviour
         _playerInput.Player.Run.canceled += OnRun;
     }
 
-    void Start()
+    private void Start()
     {
         _mainCamera = Camera.main;
         _playerPlane = new Plane(Vector3.up, transform.position);
     }
 
-    private void Update()
-    {
-        PlayerRotation();
-    }
-
     private void FixedUpdate()
     {
+        PlayerRotation();
         Gravity();
         Running();
     }
@@ -53,11 +51,11 @@ public class PlayerMovementController : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         _movementInput = context.ReadValue<Vector2>();
-        _playerWalkingMovement.x = _movementInput.x;
-        _playerWalkingMovement.z = _movementInput.y;
+        _playerWalkingMovement.x = _movementInput.x * walkingSpeed;
+        _playerWalkingMovement.z = _movementInput.y * walkingSpeed;
 
-        _playerRunningMovement.x = _movementInput.x * moveSpeed;
-        _playerRunningMovement.z = _movementInput.y * moveSpeed;
+        _playerRunningMovement.x = _movementInput.x * runningSpeed;
+        _playerRunningMovement.z = _movementInput.y * runningSpeed;
 
         isMoving = _movementInput.x != 0 || _movementInput.y != 0;
     }
@@ -75,7 +73,7 @@ public class PlayerMovementController : MonoBehaviour
     private void Gravity()
     {
         // Check if the player is above or on the ground
-        if (_characterController.isGrounded)
+        if (CharacterController.isGrounded)
         {
             const float groundedGravity = -0.05f;
             _playerWalkingMovement.y = groundedGravity;
@@ -97,11 +95,11 @@ public class PlayerMovementController : MonoBehaviour
     {
         if (isRunning)
         {
-            _characterController.Move(_playerRunningMovement * Time.deltaTime);
+            CharacterController.Move(_playerRunningMovement * Time.deltaTime);
         }
         else
         {
-            _characterController.Move(_playerWalkingMovement * Time.deltaTime);
+            CharacterController.Move(_playerWalkingMovement * Time.deltaTime);
         }
     }
 
@@ -129,7 +127,7 @@ public class PlayerMovementController : MonoBehaviour
             Quaternion.LookRotation(lookDirection),
             rotationSpeed * Time.deltaTime);
     }
-
+    
     private void OnEnable()
     {
         _playerInput.Player.Enable();
