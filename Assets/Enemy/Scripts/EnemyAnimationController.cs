@@ -1,18 +1,28 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyAnimationController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private Animator _animator;
+    private NavMeshAgent _navMeshAgent;
+
+    private void Start()
     {
-        
+        _animator = GetComponent<Animator>();
+        _navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        MovingAnimation();
+    }
+
+    private void MovingAnimation()
+    {
+        var speed = _navMeshAgent.speed;
+        _animator.SetFloat("MoveSpeed", speed);
     }
 }
