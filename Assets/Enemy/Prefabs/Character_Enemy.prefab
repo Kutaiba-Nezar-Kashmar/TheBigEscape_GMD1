@@ -207,6 +207,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a777a9c5f6c18c544be0257d147b1339, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointA: {fileID: 0}
+  pointB: {fileID: 0}
+  isMovingBack: 0
+  navMeshAgent: {fileID: 0}
+  walkingSpeed: 3
+  runningSpeed: 6
+  rotationSpeed: 10
 --- !u!95 &-5792781356227324679
 Animator:
   serializedVersion: 5
