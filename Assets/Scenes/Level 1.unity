@@ -1664,7 +1664,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 208720596}
-  m_LocalRotation: {x: 0.35826376, y: -0.000000022718249, z: 0.000000008717809, w: 0.93362045}
+  m_LocalRotation: {x: 0.35826376, y: 0.000000022718249, z: -0.00000000871781, w: 0.93362045}
   m_LocalPosition: {x: 0.6464801, y: 20.081766, z: -5.3856325}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3424,9 +3424,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1263886047}
     - target: {fileID: 8242561275954328984, guid: 45663a427c914d24eaca78af77646c42, type: 3}
+      propertyPath: firePoint
+      value: 
+      objectReference: {fileID: 1263886047}
+    - target: {fileID: 8242561275954328984, guid: 45663a427c914d24eaca78af77646c42, type: 3}
       propertyPath: projectile
       value: 
-      objectReference: {fileID: -924229754331596820, guid: 7a64d5ad19b94ca40bf1c2d98f629b45, type: 3}
+      objectReference: {fileID: 1060564574903786470, guid: 7a64d5ad19b94ca40bf1c2d98f629b45, type: 3}
     m_RemovedComponents:
     - {fileID: 505318793258322477, guid: 45663a427c914d24eaca78af77646c42, type: 3}
     - {fileID: 482215673847016755, guid: 45663a427c914d24eaca78af77646c42, type: 3}
@@ -6955,7 +6959,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 720936361}
-  m_LocalRotation: {x: 0.35826376, y: -0.000000022718249, z: 0.000000008717809, w: 0.93362045}
+  m_LocalRotation: {x: 0.35826376, y: 0.000000022718249, z: -0.00000000871781, w: 0.93362045}
   m_LocalPosition: {x: 0.6464801, y: 20.081766, z: -5.3856325}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
