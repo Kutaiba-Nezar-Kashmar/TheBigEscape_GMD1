@@ -1,12 +1,13 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletScript : MonoBehaviour
+namespace Projectiles.Scripts
 {
-    private void OnCollisionEnter(Collision collision)
+    public class BulletScript : MonoBehaviour
     {
-        Destroy(gameObject);
+        private void OnCollisionEnter(Collision collision)
+        {
+            // Destroy the bullet when colliding with colliders
+            Destroy(gameObject);
+        }
     }
 }

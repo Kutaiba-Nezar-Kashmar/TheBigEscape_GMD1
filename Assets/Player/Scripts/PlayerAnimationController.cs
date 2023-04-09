@@ -1,28 +1,29 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAnimationController : MonoBehaviour
+namespace Player.Scripts
 {
-    private Animator _animator;
-    private PlayerMovementController _playerMovementController;
-
-    private void Start()
+    public class PlayerAnimationController : MonoBehaviour
     {
-        _animator = GetComponent<Animator>();
-        _playerMovementController = GetComponent<PlayerMovementController>();
-    }
+        private Animator _animator;
+        private PlayerMovementController _playerMovementController;
 
-    private void Update()
-    {
-        MovingAnimation();
-    }
+        private void Start()
+        {
+            _animator = GetComponent<Animator>();
+            _playerMovementController = GetComponent<PlayerMovementController>();
+        }
 
-    private void MovingAnimation()
-    {
-        var speed = _playerMovementController.CharacterController.velocity
-            .magnitude;
-        _animator.SetFloat("MovingSpeed", speed);
+        private void Update()
+        {
+            MovingAnimation();
+        }
+
+        private void MovingAnimation()
+        {
+            // Retrieve the speed attribute from the CharacterController
+            var speed = _playerMovementController.CharacterController.velocity
+                .magnitude;
+            _animator.SetFloat("MovingSpeed", speed);
+        }
     }
 }

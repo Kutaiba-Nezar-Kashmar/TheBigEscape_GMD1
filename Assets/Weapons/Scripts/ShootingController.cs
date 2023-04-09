@@ -1,61 +1,65 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.LowLevel;
-using UnityEngine.Serialization;
 
-public class ShootingController : MonoBehaviour
+namespace Weapons.Scripts
 {
-    [SerializeField] private Transform firePoint;
-    [SerializeField] private float fireRate = 5.0f;
-    [SerializeField] private GameObject projectile;
-
-
-    private PlayerInputAction _playerInput;
-    private Camera _mainCamera;
-    private bool _isFiring;
-
-    private void Awake()
+    public class ShootingController : MonoBehaviour
     {
-        _playerInput = new PlayerInputAction();
+        [SerializeField] private Transform weapon;
+        [SerializeField] private float fireRate = 5.0f;
+        [SerializeField] private GameObject projectile;
+    
+        private PlayerInputAction _playerInput;
+        private bool _isFiring;
 
-        _playerInput.Player.Fire.started += OnFire;
-        _playerInput.Player.Fire.performed += OnFire;
-        _playerInput.Player.Fire.canceled += OnFire;
-    }
-
-    private void Start()
-    {
-        _mainCamera = Camera.main;
-    }
-
-    private void OnFire(InputAction.CallbackContext context)
-    {
-        var click = context.ReadValue<float>();
-        print(click);
-        if (context.performed)
+        private void Awake()
         {
-            FireWeapon();
+            _playerInput = new PlayerInputAction();
+
+            // Binding unity events
+            _playerInput.Player.Fire.started += OnFire;
+            _playerInput.Player.Fire.performed += OnFire;
+            _playerInput.Player.Fire.canceled += OnFire;
         }
-    }
 
-    private void FireWeapon()
-    {
-        var bullet = Instantiate(projectile, firePoint.position,
-            firePoint.rotation);
-        var rigidbody = bullet.GetComponent<Rigidbody>();
-        rigidbody.AddForce(firePoint.right * fireRate, ForceMode.Impulse);
-    }
+        private void OnFire(InputAction.CallbackContext context)
+        {
+            // Debug 
+            var click = context.ReadValue<float>();
+            print(click);
+        
+            /*
+         * Execute Firing only when the mouse is clicked
+         * This is done as a game mechanic, since rapid fire is not
+         * taken into consideration
+         */  
+            if (context.performed)
+            {
+                FireWeapon();
+            }
+        }
 
-    private void OnEnable()
-    {
-        _playerInput.Player.Enable();
-    }
+        private void FireWeapon()
+        {
+            // Create new projectile object. in this case a bullet
+            var bullet = Instantiate(projectile, weapon.position,
+                weapon.rotation);
+            var rigidbody = bullet.GetComponent<Rigidbody>();
+            /*
+         * Apply force to the bullet to fire in the z-axes direction
+         * that is due to the weapon position on the character and animation of shooting
+         */ 
+            rigidbody.AddForce(weapon.right * fireRate, ForceMode.Impulse);
+        }
 
-    private void OnDisable()
-    {
-        _playerInput.Player.Disable();
+        private void OnEnable()
+        {
+            _playerInput.Player.Enable();
+        }
+
+        private void OnDisable()
+        {
+            _playerInput.Player.Disable();
+        }
     }
 }
