@@ -1,12 +1,10 @@
-using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Projectiles.Scripts
 {
     public class BulletScript : MonoBehaviour
     {
-        [SerializeField] private float damage = 50.0f;
+        [SerializeField] private int damage = 10;
 
         private void OnCollisionEnter(Collision collision)
         {

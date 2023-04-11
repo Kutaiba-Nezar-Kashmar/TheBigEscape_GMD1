@@ -1,3 +1,4 @@
+using Characters.HealthBar.Scripts;
 using Projectiles.Scripts;
 using UnityEngine;
 
@@ -5,10 +6,18 @@ namespace Characters.Enemy.Scripts
 {
     public class Stats : MonoBehaviour, IDamageable
     {
-        public float HitPoint { get; set; } = 100.0f;
-        public void ReceivedDamage(float damage)
+        public int HitPoint { get; set; } = 100;
+        public HealthBarManager HealthBar;
+
+        private void Start()
+        {
+            HealthBar.SetObjectMaxHealth(HitPoint);
+        }
+
+        public void ReceivedDamage(int damage)
         {
             HitPoint -= damage;
+            HealthBar.SetObjectHealthBar(HitPoint);
             if (HitPoint <= 0)
             {
                 Destroy(gameObject);
