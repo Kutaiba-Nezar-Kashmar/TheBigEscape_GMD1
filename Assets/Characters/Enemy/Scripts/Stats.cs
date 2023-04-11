@@ -1,7 +1,7 @@
 using Projectiles.Scripts;
 using UnityEngine;
 
-namespace Enemy.Scripts
+namespace Characters.Enemy.Scripts
 {
     public class Stats : MonoBehaviour, IDamageable
     {
