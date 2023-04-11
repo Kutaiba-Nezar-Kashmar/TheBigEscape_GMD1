@@ -140,6 +140,7 @@ GameObject:
   - component: {fileID: 8169145344382180961}
   - component: {fileID: -7016483526304546701}
   - component: {fileID: -5792781356227324679}
+  - component: {fileID: -6444809423814714205}
   m_Layer: 0
   m_Name: Character_Enemy
   m_TagString: Untagged
@@ -209,11 +210,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointA: {fileID: 0}
   pointB: {fileID: 0}
-  isMovingBack: 0
+  isMoving: 0
   navMeshAgent: {fileID: 0}
-  walkingSpeed: 3
-  runningSpeed: 6
-  rotationSpeed: 10
 --- !u!95 &-5792781356227324679
 Animator:
   serializedVersion: 5
@@ -234,6 +232,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &-6444809423814714205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247960077902890731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe40d87447b470f44865020da0c83dee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1345228499244760262
 GameObject:
   m_ObjectHideFlags: 0
