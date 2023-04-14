@@ -5,7 +5,7 @@ namespace Characters.Player.Scripts
 {
     public class PlayerMovementController : MonoBehaviour
     {
-        [SerializeField] private float walkingSpeed = 3f; 
+        [SerializeField] private float walkingSpeed = 3f;
         [SerializeField] private float runningSpeed = 6f;
         [SerializeField] private float rotationSpeed = 10f;
 
@@ -51,7 +51,7 @@ namespace Characters.Player.Scripts
         {
             // Reading the Input
             _movementInput = context.ReadValue<Vector2>();
-        
+
             // Taking input vector axes and assigning them to the player movement vector
             // Walkng
             _playerWalkingMovement.x = _movementInput.x * walkingSpeed;
@@ -98,11 +98,13 @@ namespace Characters.Player.Scripts
         {
             if (isRunning)
             {
-                CharacterController.Move(_playerRunningMovement * Time.deltaTime);
+                CharacterController.Move(
+                    _playerRunningMovement * Time.deltaTime);
             }
             else
             {
-                CharacterController.Move(_playerWalkingMovement * Time.deltaTime);
+                CharacterController.Move(
+                    _playerWalkingMovement * Time.deltaTime);
             }
         }
 
@@ -119,18 +121,18 @@ namespace Characters.Player.Scripts
 
             // The playerPlane aligned with the Y axis of the player
             if (!_playerPlane.Raycast(ray, out var enter)) return;
-        
+
             // calculating the look direction from the player to the hit point on the plane
             var hitPoint = ray.GetPoint(enter);
             var lookDirection = hitPoint - transform.position;
             lookDirection.y = 0;
-        
+
             // Slerp to smoothly rotate the player object to look in that direction
             transform.rotation = Quaternion.Slerp(transform.rotation,
                 Quaternion.LookRotation(lookDirection),
                 rotationSpeed * Time.deltaTime);
         }
-    
+
         private void OnEnable()
         {
             _playerInput.Player.Enable();
@@ -139,6 +141,16 @@ namespace Characters.Player.Scripts
         private void OnDisable()
         {
             _playerInput.Player.Disable();
+        }
+
+        public PlayerData GetPlayerData()
+        {
+            var playerData = new PlayerData
+            {
+                IsMoving = isMoving,
+                IsRunning = isRunning
+            };
+            return playerData;
         }
     }
 }
