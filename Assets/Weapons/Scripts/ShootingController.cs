@@ -8,7 +8,7 @@ namespace Weapons.Scripts
         [SerializeField] private Transform weapon;
         [SerializeField] private float fireRate = 5.0f;
         [SerializeField] private GameObject projectile;
-    
+
         private PlayerInputAction _playerInput;
         private bool _isFiring;
 
@@ -27,15 +27,21 @@ namespace Weapons.Scripts
             // Debug 
             var click = context.ReadValue<float>();
             print(click);
-        
+
             /*
          * Execute Firing only when the mouse is clicked
          * This is done as a game mechanic, since rapid fire is not
          * taken into consideration
-         */  
+         */
             if (context.performed)
             {
+                _isFiring = true;
                 FireWeapon();
+            }
+
+            if (context.canceled)
+            {
+                _isFiring = false;
             }
         }
 
@@ -48,7 +54,7 @@ namespace Weapons.Scripts
             /*
          * Apply force to the bullet to fire in the z-axes direction
          * that is due to the weapon position on the character and animation of shooting
-         */ 
+         */
             rigidbody.AddForce(weapon.right * fireRate, ForceMode.Impulse);
         }
 
@@ -60,6 +66,16 @@ namespace Weapons.Scripts
         private void OnDisable()
         {
             _playerInput.Player.Disable();
+        }
+
+        public WeaponData GetWeaponData()
+        {
+            var weaponData = new WeaponData
+            {
+                IsFiring = _isFiring
+            };
+
+            return weaponData;
         }
     }
 }
