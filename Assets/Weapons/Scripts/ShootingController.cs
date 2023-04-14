@@ -6,7 +6,7 @@ namespace Weapons.Scripts
     public class ShootingController : MonoBehaviour
     {
         [SerializeField] private Transform weapon;
-        [SerializeField] private float fireRate = 5.0f;
+        [SerializeField] private float fireRate = 25.0f;
         [SerializeField] private GameObject projectile;
 
         private PlayerInputAction _playerInput;
