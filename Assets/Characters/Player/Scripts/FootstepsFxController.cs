@@ -35,7 +35,7 @@ namespace Characters.Player.Scripts
             {
                 runningAudio.Stop();
                 // randomize the pitch and volume of each foot step to simulate realistic walking sound
-                walkingAudio.volume = Random.Range(0.7f, 1);
+                walkingAudio.volume = Random.Range(0.2f, 0.5f);
                 walkingAudio.pitch = Random.Range(0.7f, 1.1f);
                 walkingAudio.Play();
             }
@@ -47,7 +47,7 @@ namespace Characters.Player.Scripts
             {
                 walkingAudio.Stop();
                 // randomize the pitch and volume of each foot step to simulate realistic walking sound
-                runningAudio.volume = Random.Range(0.7f, 1);
+                runningAudio.volume = Random.Range(0.2f, 0.5f);
                 runningAudio.pitch = Random.Range(0.7f, 1.1f);
                 runningAudio.Play();
             }
