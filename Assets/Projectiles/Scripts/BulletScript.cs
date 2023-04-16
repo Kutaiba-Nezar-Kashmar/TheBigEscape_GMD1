@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Projectiles.Scripts
@@ -5,6 +6,12 @@ namespace Projectiles.Scripts
     public class BulletScript : MonoBehaviour
     {
         [SerializeField] private int damage = 10;
+        [SerializeField] private float timeToLive = 5.0f;
+
+        private void Start()
+        {
+            Destroy(gameObject, timeToLive);
+        }
 
         private void OnCollisionEnter(Collision collision)
         {

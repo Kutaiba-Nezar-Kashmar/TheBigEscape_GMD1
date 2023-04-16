@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
@@ -57,7 +60,8 @@ namespace Weapons.Scripts
          * Apply force to the bullet to fire in the z-axes direction
          * that is due to the weapon position on the character and animation of shooting
          */
-            rigidbody.AddForce(firingOrigin.right * fireRate, ForceMode.Impulse);
+            rigidbody.AddForce(firingOrigin.right * fireRate,
+                ForceMode.Impulse);
         }
 
         private void OnEnable()
@@ -79,6 +83,5 @@ namespace Weapons.Scripts
 
             return weaponData;
         }
-
     }
 }
