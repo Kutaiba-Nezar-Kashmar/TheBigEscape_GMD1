@@ -104,6 +104,7 @@ MonoBehaviour:
   weapon: {fileID: 3600324849672889707}
   fireRate: 5
   projectile: {fileID: -924229754331596820, guid: 7a64d5ad19b94ca40bf1c2d98f629b45, type: 3}
+  isFiring: 0
 --- !u!82 &5616013151188421569
 AudioSource:
   m_ObjectHideFlags: 0

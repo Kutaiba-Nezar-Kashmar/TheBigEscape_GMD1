@@ -1,16 +1,18 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace Weapons.Scripts
 {
     public class ShootingController : MonoBehaviour
     {
-        [SerializeField] private Transform weapon;
+        [SerializeField] private Transform firingOrigin;
         [SerializeField] private float fireRate = 25.0f;
         [SerializeField] private GameObject projectile;
 
         private PlayerInputAction _playerInput;
-        private bool _isFiring;
+        public bool isFiring;
+
 
         private void Awake()
         {
@@ -35,27 +37,27 @@ namespace Weapons.Scripts
          */
             if (context.performed)
             {
-                _isFiring = true;
+                isFiring = true;
                 FireWeapon();
             }
 
             if (context.canceled)
             {
-                _isFiring = false;
+                isFiring = false;
             }
         }
 
         private void FireWeapon()
         {
             // Create new projectile object. in this case a bullet
-            var bullet = Instantiate(projectile, weapon.position,
-                weapon.rotation);
+            var bullet = Instantiate(projectile, firingOrigin.position,
+                firingOrigin.rotation);
             var rigidbody = bullet.GetComponent<Rigidbody>();
             /*
          * Apply force to the bullet to fire in the z-axes direction
          * that is due to the weapon position on the character and animation of shooting
          */
-            rigidbody.AddForce(weapon.right * fireRate, ForceMode.Impulse);
+            rigidbody.AddForce(firingOrigin.right * fireRate, ForceMode.Impulse);
         }
 
         private void OnEnable()
@@ -72,10 +74,11 @@ namespace Weapons.Scripts
         {
             var weaponData = new WeaponData
             {
-                IsFiring = _isFiring
+                IsFiring = isFiring
             };
 
             return weaponData;
         }
+
     }
 }
