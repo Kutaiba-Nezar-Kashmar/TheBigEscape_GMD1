@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -12,14 +13,19 @@ namespace Weapons.Scripts
         [SerializeField] private Transform firingOrigin;
         [SerializeField] private float fireRate = 25.0f;
         [SerializeField] private GameObject projectile;
+        [SerializeField] private int ammo;
+        [SerializeField] private int magSize;
+        [SerializeField] private float reloadSpeed;
 
         private PlayerInputAction _playerInput;
         public bool isFiring;
+        private bool _isReloading = false;
 
 
         private void Awake()
         {
             _playerInput = new PlayerInputAction();
+            ammo = magSize;
 
             // Binding unity events
             _playerInput.Player.Fire.started += OnFire;
@@ -32,12 +38,17 @@ namespace Weapons.Scripts
             // Debug 
             var click = context.ReadValue<float>();
             print(click);
-
-            /*
+         /*
          * Execute Firing only when the mouse is clicked
          * This is done as a game mechanic, since rapid fire is not
          * taken into consideration
          */
+            if (_isReloading) return;
+            if (ammo <= 0)
+            {
+                StartCoroutine(ReloadWeapon());
+            }
+
             if (context.performed)
             {
                 isFiring = true;
@@ -52,6 +63,7 @@ namespace Weapons.Scripts
 
         private void FireWeapon()
         {
+            ammo--;
             // Create new projectile object. in this case a bullet
             var bullet = Instantiate(projectile, firingOrigin.position,
                 firingOrigin.rotation);
@@ -62,6 +74,15 @@ namespace Weapons.Scripts
          */
             rigidbody.AddForce(firingOrigin.right * fireRate,
                 ForceMode.Impulse);
+        }
+
+        // Function to start a StartCoroutine to simulate reloading
+        private IEnumerator ReloadWeapon()
+        {
+            _isReloading = true;
+            yield return new WaitForSeconds(reloadSpeed);
+            ammo = magSize;
+            _isReloading = false;
         }
 
         private void OnEnable()
