@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77ef38ebc44c22445a75397313ebdb0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 3600324849672889707}
+  firingOrigin: {fileID: 0}
   fireRate: 5
   projectile: {fileID: -924229754331596820, guid: 7a64d5ad19b94ca40bf1c2d98f629b45, type: 3}
   isFiring: 0
