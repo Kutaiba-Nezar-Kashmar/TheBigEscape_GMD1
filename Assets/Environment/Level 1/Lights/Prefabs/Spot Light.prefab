@@ -128,3 +128,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11a9237892b2b83419e3277fc0e8ac55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFlicker: 0
