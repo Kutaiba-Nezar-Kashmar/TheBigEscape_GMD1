@@ -1,3 +1,4 @@
+using Input;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,13 +9,12 @@ namespace Characters.Player.Scripts
         [SerializeField] private float walkingSpeed = 3f;
         [SerializeField] private float runningSpeed = 6f;
         [SerializeField] private float rotationSpeed = 10f;
+        public CharacterController CharacterController { get; private set; }
 
         private Camera _mainCamera;
         private Plane _playerPlane;
-
-        public CharacterController CharacterController { get; private set; }
-        private PlayerInputAction _playerInput;
-        private Vector2 _movementInput;
+        private InputManager _inputManager;
+        private PlayerInput _playerInput;
         private Vector3 _playerWalkingMovement;
         private Vector3 _playerRunningMovement;
         private bool isMoving;
@@ -22,50 +22,45 @@ namespace Characters.Player.Scripts
 
         private void Awake()
         {
-            _playerInput = new PlayerInputAction();
             CharacterController = GetComponent<CharacterController>();
-
-            // Binding Unity Events
-            _playerInput.Player.Move.started += OnMove;
-            _playerInput.Player.Move.performed += OnMove;
-            _playerInput.Player.Move.canceled += OnMove;
-
-            _playerInput.Player.Run.started += OnRun;
-            _playerInput.Player.Run.canceled += OnRun;
         }
 
         private void Start()
         {
+            _inputManager = GetComponent<InputManager>();
+            _playerInput = GetComponent<PlayerInput>();
             _mainCamera = Camera.main;
             _playerPlane = new Plane(Vector3.up, transform.position);
         }
 
         private void FixedUpdate()
         {
+            Move();
+            IsRunning();
             PlayerRotation();
             Gravity();
             Running();
         }
 
-        public void OnMove(InputAction.CallbackContext context)
+        private void Move()
         {
             // Reading the Input
-            _movementInput = context.ReadValue<Vector2>();
+            var movementInput = _inputManager.MovementInput;
 
             // Taking input vector axes and assigning them to the player movement vector
             // Walkng
-            _playerWalkingMovement.x = _movementInput.x * walkingSpeed;
-            _playerWalkingMovement.z = _movementInput.y * walkingSpeed;
+            _playerWalkingMovement.x = movementInput.x * walkingSpeed;
+            _playerWalkingMovement.z = movementInput.y * walkingSpeed;
             // Running
-            _playerRunningMovement.x = _movementInput.x * runningSpeed;
-            _playerRunningMovement.z = _movementInput.y * runningSpeed;
+            _playerRunningMovement.x = movementInput.x * runningSpeed;
+            _playerRunningMovement.z = movementInput.y * runningSpeed;
 
-            isMoving = _movementInput.x != 0 || _movementInput.y != 0;
+            isMoving = movementInput.x != 0 || movementInput.y != 0;
         }
 
-        private void OnRun(InputAction.CallbackContext context)
+        private void IsRunning()
         {
-            isRunning = context.ReadValueAsButton();
+            isRunning = _inputManager.IsRunningInput;
         }
 
 
@@ -132,17 +127,7 @@ namespace Characters.Player.Scripts
                 Quaternion.LookRotation(lookDirection),
                 rotationSpeed * Time.deltaTime);
         }
-
-        private void OnEnable()
-        {
-            _playerInput.Player.Enable();
-        }
-
-        private void OnDisable()
-        {
-            _playerInput.Player.Disable();
-        }
-
+        
         public PlayerData GetPlayerData()
         {
             var playerData = new PlayerData
