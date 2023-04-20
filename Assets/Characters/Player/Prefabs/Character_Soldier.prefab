@@ -1629,6 +1629,7 @@ GameObject:
   - component: {fileID: -7978164164470395156}
   - component: {fileID: 7274107594795960713}
   - component: {fileID: 2717232826634264868}
+  - component: {fileID: 426599913559552373}
   m_Layer: 0
   m_Name: Character_Soldier
   m_TagString: Untagged
@@ -2074,6 +2075,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &426599913559552373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5610790365576471269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c595aa75286a45b8aa5cc76c0cfd51a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 4796450234858965995, guid: c7fa014a8f7aba54c9a74f953b15fcb6, type: 3}
 --- !u!1 &5815927642999841265
 GameObject:
   m_ObjectHideFlags: 0

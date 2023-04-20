@@ -3,7 +3,7 @@ using Random = UnityEngine.Random;
 
 namespace Characters.Player.Scripts
 {
-    public class FootstepsFxController : MonoBehaviour
+    public class FootstepsSoundFxController : MonoBehaviour
     {
         [SerializeField] private AudioSource walkingAudio;
         [SerializeField] private AudioSource runningAudio;

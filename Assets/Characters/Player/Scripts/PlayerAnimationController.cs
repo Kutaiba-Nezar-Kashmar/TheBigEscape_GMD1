@@ -1,5 +1,5 @@
+using Input;
 using UnityEngine;
-using Weapons.Scripts;
 
 namespace Characters.Player.Scripts
 {
@@ -7,15 +7,14 @@ namespace Characters.Player.Scripts
     {
         private Animator _animator;
         private PlayerMovementController _playerMovementController;
-        private GameObject _weapon;
-        private ShootingController _shootingController;
-        
+        private InputManager _inputManager;
+
         private void Start()
         {
             _animator = GetComponent<Animator>();
-            _playerMovementController = GetComponent<PlayerMovementController>();
-            _weapon = GameObject.Find("Sniper_2");
-            _shootingController = _weapon.GetComponent<ShootingController>();
+            _playerMovementController =
+                GetComponent<PlayerMovementController>();
+            _inputManager = GetComponent<InputManager>();
         }
 
         private void Update()
@@ -34,13 +33,9 @@ namespace Characters.Player.Scripts
 
         private void ShootingAnimation()
         {
-            var isFiring = _shootingController.isFiring;
-            if (isFiring)
-            {
-                print(isFiring);
-            }
+            var isFiring = _inputManager.IsFiringInput;
+
             _animator.SetBool("IsFiring", isFiring);
         }
-
     }
 }
