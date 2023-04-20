@@ -12,6 +12,10 @@ namespace Input
         public bool IsReloadingInput { get; set; }
         public bool IsInteracting { get; set; }
 
+        public delegate void Trigger();
+
+        public event Trigger ShootingEvent;
+
         private void Awake()
         {
             _inputAction = new PlayerInputAction();
@@ -31,7 +35,7 @@ namespace Input
 
             // Firing
             _inputAction.Player.Fire.performed
-                += _ => IsFiringInput = true;
+                += _ => ShootingEvent?.Invoke();
             _inputAction.Player.Fire.canceled
                 += _ => IsFiringInput = false;
 
