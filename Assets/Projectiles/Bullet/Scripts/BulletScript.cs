@@ -1,7 +1,7 @@
-using System;
+using Projectiles.Shared.Scripts;
 using UnityEngine;
 
-namespace Projectiles.Scripts
+namespace Projectiles.Bullet.Scripts
 {
     public class BulletScript : MonoBehaviour
     {

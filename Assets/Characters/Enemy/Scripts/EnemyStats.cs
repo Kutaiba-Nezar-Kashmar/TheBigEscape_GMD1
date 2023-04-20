@@ -1,5 +1,5 @@
 using Characters.HealthBar.Scripts;
-using Projectiles.Scripts;
+using Projectiles.Shared.Scripts;
 using UnityEngine;
 
 namespace Characters.Enemy.Scripts

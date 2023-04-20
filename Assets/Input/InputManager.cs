@@ -10,6 +10,7 @@ namespace Input
         public bool IsRunningInput { get; set; }
         public bool IsFiringInput { get; set; }
         public bool IsReloadingInput { get; set; }
+        public bool IsInteracting { get; set; }
 
         private void Awake()
         {
@@ -39,6 +40,12 @@ namespace Input
                 += _ => IsReloadingInput = true;
             _inputAction.Player.Reload.canceled
                 += _ => IsReloadingInput = false;
+
+            // Interacting
+            _inputAction.Player.Interact.performed
+                += _ => IsInteracting = true;
+            _inputAction.Player.Interact.canceled
+                += _ => IsInteracting = false;
         }
 
         private void OnEnable()

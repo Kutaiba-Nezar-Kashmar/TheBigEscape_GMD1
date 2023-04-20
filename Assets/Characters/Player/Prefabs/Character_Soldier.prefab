@@ -1626,10 +1626,12 @@ GameObject:
   - component: {fileID: 874450812429102667}
   - component: {fileID: 4691873186111004558}
   - component: {fileID: 4691873186111004557}
+  - component: {fileID: 6835443744628403118}
   - component: {fileID: -7978164164470395156}
+  - component: {fileID: 426599913559552373}
+  - component: {fileID: 4284106030554334498}
   - component: {fileID: 7274107594795960713}
   - component: {fileID: 2717232826634264868}
-  - component: {fileID: 426599913559552373}
   m_Layer: 0
   m_Name: Character_Soldier
   m_TagString: Untagged
@@ -1781,6 +1783,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 84637346-08a7-40a5-9c39-c081c3e7e6ac
     m_ActionName: Player/Reload[/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e6110f47-41f1-4660-aa30-8b960c0c8a40
+    m_ActionName: Player/Interact[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -1869,6 +1875,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f33291699b056a4baaf7d1f06263c3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6835443744628403118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5610790365576471269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc541e6fd8174449a605513fc6cc7172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firingOrigin: {fileID: 2126686483460657367, guid: ece37b103c69f914a9836e8e5e10ca4b, type: 3}
+  fireRate: 25
+  fireSpeed: 1
+  projectile: {fileID: 1060564574903786470, guid: 7a64d5ad19b94ca40bf1c2d98f629b45, type: 3}
+  ammo: 0
+  magSize: 5
+  reloadSpeed: 3
 --- !u!114 &-7978164164470395156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1883,6 +1908,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkingAudio: {fileID: 7274107594795960713}
   runningAudio: {fileID: 2717232826634264868}
+--- !u!114 &426599913559552373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5610790365576471269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c595aa75286a45b8aa5cc76c0cfd51a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 4796450234858965995, guid: c7fa014a8f7aba54c9a74f953b15fcb6, type: 3}
+--- !u!114 &4284106030554334498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5610790365576471269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37369516e3644446a7da893083b242b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionDiameter: 3
 --- !u!82 &7274107594795960713
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2075,19 +2126,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &426599913559552373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5610790365576471269}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c595aa75286a45b8aa5cc76c0cfd51a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weapon: {fileID: 4796450234858965995, guid: c7fa014a8f7aba54c9a74f953b15fcb6, type: 3}
 --- !u!1 &5815927642999841265
 GameObject:
   m_ObjectHideFlags: 0
@@ -2840,7 +2878,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sniper_2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -4914110437740948172, guid: c7fa014a8f7aba54c9a74f953b15fcb6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c7fa014a8f7aba54c9a74f953b15fcb6, type: 3}
 --- !u!4 &1969857074534772168 stripped
 Transform:

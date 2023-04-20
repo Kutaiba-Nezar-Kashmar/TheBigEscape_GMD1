@@ -269,6 +269,7 @@ GameObject:
   - component: {fileID: 1685925119332365099}
   - component: {fileID: -8333808811373759195}
   - component: {fileID: 6372167176208892374}
+  - component: {fileID: -8678520813563513573}
   m_Layer: 0
   m_Name: Character_Hazmat
   m_TagString: Untagged
@@ -306,7 +307,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 2.6
-  m_Radius: 0.8
+  m_Radius: 1
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -332,6 +333,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &-8678520813563513573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2030643332799457681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d838a83b17c94a7ca13fed32f7664cb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceFromTarget: 2
 --- !u!1 &2129111511420423938
 GameObject:
   m_ObjectHideFlags: 0

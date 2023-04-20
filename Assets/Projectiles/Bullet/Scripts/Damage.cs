@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Projectiles.Scripts
+namespace Projectiles.Bullet.Scripts
 {
     public class Damage : MonoBehaviour
     {
