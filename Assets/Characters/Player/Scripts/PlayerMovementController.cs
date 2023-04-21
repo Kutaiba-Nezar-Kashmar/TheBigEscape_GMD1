@@ -13,8 +13,6 @@ namespace Characters.Player.Scripts
 
         private Camera _mainCamera;
         private Plane _playerPlane;
-        private InputManager _inputManager;
-        private PlayerInput _playerInput;
         private Vector3 _playerWalkingMovement;
         private Vector3 _playerRunningMovement;
         private bool isMoving;
@@ -27,25 +25,21 @@ namespace Characters.Player.Scripts
 
         private void Start()
         {
-            _inputManager = GetComponent<InputManager>();
-            _playerInput = GetComponent<PlayerInput>();
             _mainCamera = Camera.main;
             _playerPlane = new Plane(Vector3.up, transform.position);
         }
 
         private void FixedUpdate()
         {
-            Move();
-            IsRunning();
             PlayerRotation();
             Gravity();
             Running();
         }
 
-        private void Move()
+        public void OnMove(InputAction.CallbackContext context)
         {
             // Reading the Input
-            var movementInput = _inputManager.MovementInput;
+            var movementInput = context.ReadValue<Vector2>();
 
             // Taking input vector axes and assigning them to the player movement vector
             // Walkng
@@ -58,9 +52,9 @@ namespace Characters.Player.Scripts
             isMoving = movementInput.x != 0 || movementInput.y != 0;
         }
 
-        private void IsRunning()
+        public void OnRun(InputAction.CallbackContext context)
         {
-            isRunning = _inputManager.IsRunningInput;
+            isRunning = context.performed;
         }
 
 
@@ -127,7 +121,7 @@ namespace Characters.Player.Scripts
                 Quaternion.LookRotation(lookDirection),
                 rotationSpeed * Time.deltaTime);
         }
-        
+
         public PlayerData GetPlayerData()
         {
             var playerData = new PlayerData

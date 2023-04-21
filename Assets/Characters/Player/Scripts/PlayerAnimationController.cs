@@ -33,9 +33,9 @@ namespace Characters.Player.Scripts
 
         private void ShootingAnimation()
         {
-            var isFiring = _inputManager.IsFiringInput;
+            //var isFiring = _inputManager.IsFiringInput;
 
-            _animator.SetBool("IsFiring", isFiring);
+            //_animator.SetBool("IsFiring", isFiring);
         }
     }
 }
