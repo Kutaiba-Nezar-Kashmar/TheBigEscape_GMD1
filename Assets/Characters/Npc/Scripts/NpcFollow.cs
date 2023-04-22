@@ -1,4 +1,5 @@
-﻿using Characters.Shared.Scripts;
+﻿using Characters.Shared.Model;
+using Characters.Shared.Scripts;
 using UnityEngine;
 
 namespace Characters.Npc.Scripts

@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using Weapons.Model;
 
 namespace Weapons.Scripts
 {
