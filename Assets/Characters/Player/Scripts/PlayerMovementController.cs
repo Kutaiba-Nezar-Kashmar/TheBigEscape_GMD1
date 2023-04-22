@@ -1,15 +1,18 @@
+using Characters.Shared.Model;
 using Input;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Characters.Player.Scripts
 {
-    public class PlayerMovementController : MonoBehaviour
+    public class PlayerMovementController : MonoBehaviour, ICharacter
     {
         [SerializeField] private float walkingSpeed = 3f;
         [SerializeField] private float runningSpeed = 6f;
         [SerializeField] private float rotationSpeed = 10f;
-        public CharacterController CharacterController { get; private set; }
+        private CharacterController _characterController;
+        public bool IsMoving { get; set; }
+        public bool IsRunning { get; set; }
 
         private Camera _mainCamera;
         private Plane _playerPlane;
@@ -20,7 +23,7 @@ namespace Characters.Player.Scripts
 
         private void Awake()
         {
-            CharacterController = GetComponent<CharacterController>();
+            _characterController = GetComponent<CharacterController>();
         }
 
         private void Start()
@@ -34,6 +37,8 @@ namespace Characters.Player.Scripts
             PlayerRotation();
             Gravity();
             Running();
+            IsMoving = isMoving;
+            IsRunning = isRunning;
         }
 
         public void OnMove(InputAction.CallbackContext context)
@@ -65,7 +70,7 @@ namespace Characters.Player.Scripts
         private void Gravity()
         {
             // Check if the player is above or on the ground
-            if (CharacterController.isGrounded)
+            if (_characterController.isGrounded)
             {
                 const float groundedGravity = -0.05f;
                 _playerWalkingMovement.y = groundedGravity;
@@ -87,12 +92,12 @@ namespace Characters.Player.Scripts
         {
             if (isRunning)
             {
-                CharacterController.Move(
+                _characterController.Move(
                     _playerRunningMovement * Time.deltaTime);
             }
             else
             {
-                CharacterController.Move(
+                _characterController.Move(
                     _playerWalkingMovement * Time.deltaTime);
             }
         }
@@ -120,16 +125,6 @@ namespace Characters.Player.Scripts
             transform.rotation = Quaternion.Slerp(transform.rotation,
                 Quaternion.LookRotation(lookDirection),
                 rotationSpeed * Time.deltaTime);
-        }
-
-        public PlayerData GetPlayerData()
-        {
-            var playerData = new PlayerData
-            {
-                IsMoving = isMoving,
-                IsRunning = isRunning
-            };
-            return playerData;
         }
     }
 }
