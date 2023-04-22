@@ -34,7 +34,6 @@ namespace Characters.Player.Scripts
 
         private void FixedUpdate()
         {
-            PlayerRotation();
             Gravity();
             Running();
             IsMoving = isMoving;
@@ -105,7 +104,7 @@ namespace Characters.Player.Scripts
         /// <summary>
         /// Dynamically rotate the player around its Y axis
         /// </summary>
-        private void PlayerRotation()
+        public void OnRotation(InputAction.CallbackContext context)
         {
             // Read mouse position
             var mousePosition = Mouse.current.position.ReadValue();
