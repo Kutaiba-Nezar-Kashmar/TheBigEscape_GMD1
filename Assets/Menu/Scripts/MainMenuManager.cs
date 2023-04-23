@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
@@ -15,11 +16,6 @@ public class MainMenuManager : MonoBehaviour
     {
         // Continue the game to the current active scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
-
-    public void OnOptionsButton()
-    {
-        
     }
 
     public void OnQuitButton()
