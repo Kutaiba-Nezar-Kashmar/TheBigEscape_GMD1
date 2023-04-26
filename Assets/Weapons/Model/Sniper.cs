@@ -10,6 +10,7 @@ namespace Weapons.Model
         [SerializeField] private GameObject projectile;
         [SerializeField] private int ammo;
         [SerializeField] private int magSize = 5;
+        [SerializeField] private AudioSource audioSource;
 
         private void Awake()
         {
@@ -18,6 +19,7 @@ namespace Weapons.Model
 
         public void ShootWeapon()
         {
+            audioSource.Play();
             if (ammo <= 0) return;
             ammo--;
             // Create new projectile object. in this case a bullet
