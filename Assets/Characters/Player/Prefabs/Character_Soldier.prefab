@@ -2024,11 +2024,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bcd53ff22124f388ee4766bf5200cdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firingOrigin: {fileID: 3429482115141399974, guid: ece37b103c69f914a9836e8e5e10ca4b, type: 3}
-  fireRate: 25
-  projectile: {fileID: 1060564574903786470, guid: 7a64d5ad19b94ca40bf1c2d98f629b45, type: 3}
-  ammo: 0
-  magSize: 5
 --- !u!114 &8880015888228149935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3039,6 +3034,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2073962114033981956}
     m_Modifications:
+    - target: {fileID: 2138785752468310959, guid: c7fa014a8f7aba54c9a74f953b15fcb6, type: 3}
+      propertyPath: firingOrigin
+      value: 
+      objectReference: {fileID: 6860049001534486481}
     - target: {fileID: 3438536253726663854, guid: c7fa014a8f7aba54c9a74f953b15fcb6, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -3185,6 +3184,18 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: a5c8c53d-7efd-413c-829c-7a06727284df
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 84637346-08a7-40a5-9c39-c081c3e7e6ac
+    m_ActionName: Player/Reload[/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e6110f47-41f1-4660-aa30-8b960c0c8a40
+    m_ActionName: Player/Interact[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9861b3d8-bb5d-4af7-a315-5c9b0ed4d1c9
+    m_ActionName: Player/Menu[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -3294,6 +3305,11 @@ PrefabInstance:
 --- !u!4 &1737040015980230728 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3429482115141399974, guid: ece37b103c69f914a9836e8e5e10ca4b, type: 3}
+  m_PrefabInstance: {fileID: 4002788989092040174}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6860049001534486481 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7547761775057402431, guid: ece37b103c69f914a9836e8e5e10ca4b, type: 3}
   m_PrefabInstance: {fileID: 4002788989092040174}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6154091922316343328

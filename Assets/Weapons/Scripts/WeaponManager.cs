@@ -7,47 +7,31 @@ namespace Weapons.Scripts
 {
     public class WeaponManager : MonoBehaviour
     {
-        [SerializeField] private Transform firingOrigin;
-        [SerializeField] private float fireRate = 25.0f;
-        [SerializeField] private GameObject projectile;
-        [SerializeField] private int ammo;
-        [SerializeField] private int magSize = 5;
-
         private IFireInput _fireInput;
         private IReloadInput _reloadInput;
+        private IWeapon _weapon;
 
         private void Awake()
         {
             _fireInput = GetComponent<IFireInput>();
             _reloadInput = GetComponent<IReloadInput>();
-            ammo = magSize;
+            _weapon = GetComponentInChildren<IWeapon>();
         }
 
         private void Start()
         {
-            _fireInput.OnFire += ShootWeapon;
-            _reloadInput.OnReload += ReloadWeapon;
+            _fireInput.OnFire += Shoot;
+            _reloadInput.OnReload += Reload;
         }
 
-        private void ShootWeapon()
+        private void Shoot()
         {
-            if (ammo <= 0) return;
-            ammo--;
-            // Create new projectile object. in this case a bullet
-            var bullet = Instantiate(projectile, firingOrigin.position,
-                firingOrigin.rotation);
-            var rigidbody = bullet.GetComponent<Rigidbody>();
-            /*
-                 * Apply force to the bullet to fire in the z-axes direction
-                 * that is due to the weapon position on the character and animation of shooting
-                 */
-            rigidbody.AddForce(firingOrigin.right * fireRate,
-                ForceMode.Impulse);
+            _weapon.ShootWeapon();
         }
 
-        private void ReloadWeapon()
+        private void Reload()
         {
-            ammo = magSize;
+            _weapon.ReloadWeapon();
         }
     }
 }

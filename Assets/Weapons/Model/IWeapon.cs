@@ -1,0 +1,10 @@
+﻿using UnityEngine;
+
+namespace Weapons.Model
+{
+    public interface IWeapon
+    {
+        void ShootWeapon();
+        void ReloadWeapon();
+    }
+}
