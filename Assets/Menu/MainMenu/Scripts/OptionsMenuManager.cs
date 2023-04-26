@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -6,9 +7,11 @@ namespace Menu.Scripts
     public class OptionsMenuManager : MonoBehaviour
     {
         [SerializeField] private AudioMixer audioMixer;
+        
         public void SetSound(float sound)
         {
             audioMixer.SetFloat("MasterAudio", sound);
+            PlayerPrefs.SetFloat("Volume", sound);
         }
 
         public void SetGraphics(int index)

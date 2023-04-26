@@ -1626,7 +1626,6 @@ GameObject:
   - component: {fileID: 874450812429102667}
   - component: {fileID: 4691873186111004558}
   - component: {fileID: -7978164164470395156}
-  - component: {fileID: 426599913559552373}
   - component: {fileID: 4284106030554334498}
   - component: {fileID: -5739921127049600022}
   - component: {fileID: -4164688964804587793}
@@ -1961,19 +1960,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkingAudio: {fileID: 7274107594795960713}
   runningAudio: {fileID: 2717232826634264868}
---- !u!114 &426599913559552373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5610790365576471269}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c595aa75286a45b8aa5cc76c0cfd51a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioSource: {fileID: 0}
 --- !u!114 &4284106030554334498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2072,6 +2058,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menu: {fileID: 6420014593945146967, guid: b22a13c186bb24044b3e3b441e7aa096, type: 3}
+  audioMixer: {fileID: 24100000, guid: acffa729d658476428de5bc4768c905c, type: 2}
 --- !u!82 &7274107594795960713
 AudioSource:
   m_ObjectHideFlags: 0
