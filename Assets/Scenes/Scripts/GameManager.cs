@@ -1,11 +1,10 @@
-﻿using System;
-using Characters.Player.Model;
+﻿using Characters.Player.Model;
 using UnityEngine;
 using UnityEngine.Audio;
 
-namespace Characters.Player.Scripts
+namespace Scenes.Scripts
 {
-    public class PlayerGameManager : MonoBehaviour
+    public class GameManager : MonoBehaviour
     {
         [SerializeField] private GameObject menu;
         [SerializeField] private AudioMixer audioMixer;
