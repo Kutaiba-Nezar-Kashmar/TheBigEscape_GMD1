@@ -6,16 +6,20 @@ namespace Audio.Script
 {
     public class FootstepsSoundFxController : MonoBehaviour
     {
-        [SerializeField] private AudioSource walkingAudio;
-        [SerializeField] private AudioSource runningAudio;
+        private AudioSource walkingAudio;
+        private AudioSource runningAudio;
 
         private CharacterController _characterController;
         private ICharacter _character;
+        private AudioManager _audioManager;
 
         private void Start()
         {
             _characterController = GetComponent<CharacterController>();
+            _audioManager = GetComponent<AudioManager>();
             _character = GetComponent<ICharacter>();
+            walkingAudio = _audioManager.FetchSfxAudio("MetalWalk");
+            runningAudio = _audioManager.FetchSfxAudio("MetalRun");
         }
 
         private void Update()

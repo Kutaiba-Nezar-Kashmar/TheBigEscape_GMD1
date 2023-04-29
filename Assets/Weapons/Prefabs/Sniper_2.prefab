@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 3438536253726663854}
   - component: {fileID: 2851987738623106970}
   - component: {fileID: 536981247349650254}
-  - component: {fileID: 2138785752468310959}
-  - component: {fileID: -4207381999828395443}
+  - component: {fileID: 6377328474302251229}
+  - component: {fileID: -5476839844301719365}
+  - component: {fileID: 347395542639490670}
   m_Layer: 0
   m_Name: Sniper_2
   m_TagString: Untagged
@@ -88,7 +89,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2138785752468310959
+--- !u!114 &6377328474302251229
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97,7 +98,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4796450234858965995}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a646876c56b84e91955bc90e70f3fba2, type: 3}
+  m_Script: {fileID: 11500000, guid: b96985756fbb499386d1a6a77e14cf90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   firingOrigin: {fileID: 7547761775057402431, guid: ece37b103c69f914a9836e8e5e10ca4b, type: 3}
@@ -105,8 +106,25 @@ MonoBehaviour:
   projectile: {fileID: 1060564574903786470, guid: 7a64d5ad19b94ca40bf1c2d98f629b45, type: 3}
   ammo: 0
   magSize: 5
-  audioSource: {fileID: -4207381999828395443}
---- !u!82 &-4207381999828395443
+--- !u!114 &-5476839844301719365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4796450234858965995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd04fbc9ec74c6790274e5d465bb22e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxAudioList:
+  - ClipName: Sniper
+    Clip: {fileID: 8300000, guid: a43faa7ad8c622f4e9bedb4d827d2b86, type: 3}
+  musicAudioList: []
+  sfxAudioSource: {fileID: 347395542639490670}
+  musicAudioSource: {fileID: 347395542639490670}
+--- !u!82 &347395542639490670
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,7 +134,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: acffa729d658476428de5bc4768c905c, type: 2}
-  m_audioClip: {fileID: 8300000, guid: a43faa7ad8c622f4e9bedb4d827d2b86, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using Audio.Script;
+using UnityEngine;
 using Weapons.Model;
 
 namespace Weapons.Scripts
@@ -10,20 +12,27 @@ namespace Weapons.Scripts
         [SerializeField] private GameObject projectile;
         [SerializeField] private int ammo;
         [SerializeField] private int magSize = 5;
-        [SerializeField] private AudioSource audioSource;
+
+        private AudioManager _audioManager;
 
         private void Awake()
         {
             ammo = magSize;
         }
 
+        private void Start()
+        {
+            _audioManager = GetComponent<AudioManager>();
+        }
+
         public void ShootWeapon()
         {
-            audioSource.Play();
             if (ammo <= 0) return;
+            _audioManager.PlaySfxAudio("Sniper");
             ammo--;
             // Create new projectile object. in this case a bullet
-            var bullet = Instantiate(projectile, firingOrigin.transform.position,
+            var bullet = Instantiate(projectile,
+                firingOrigin.transform.position,
                 firingOrigin.transform.rotation);
             var rigidbody = bullet.GetComponent<Rigidbody>();
             /*
