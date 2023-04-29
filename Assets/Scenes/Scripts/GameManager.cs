@@ -1,4 +1,5 @@
-﻿using Characters.Player.Model;
+﻿using Audio.Script;
+using Characters.Player.Model;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -9,6 +10,7 @@ namespace Scenes.Scripts
         [SerializeField] private GameObject menu;
         [SerializeField] private AudioMixer audioMixer;
         private IPauseInput _pauseInput;
+        private AudioManager _audioManager;
 
         private void Awake()
         {
@@ -18,6 +20,8 @@ namespace Scenes.Scripts
 
         private void Start()
         {
+            _audioManager = GetComponent<AudioManager>();
+            _audioManager.PlayMusicAudio("Alarm");
             _pauseInput.OnPause += Pause;
         }
 

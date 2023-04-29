@@ -1,20 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class MainMenuManager : MonoBehaviour
+namespace Menu.MainMenu.Scripts
 {
-    public void OnNewGameButton()
+    public class MainMenuManager : MonoBehaviour
     {
-        // The New game button should always load Level 1 
-        SceneManager.LoadScene("Level 1");
-    }
+        public void OnNewGameButton()
+        {
+            // The New game button should always load Level 1 
+            SceneManager.LoadScene("Level 1");
+        }
 
-    public void OnQuitButton()
-    {
-        Debug.Log("QUIT!!!");
-        Application.Quit();
+        public void OnQuitButton()
+        {
+            Debug.Log("QUIT!!!");
+            Application.Quit();
+        }
     }
 }
