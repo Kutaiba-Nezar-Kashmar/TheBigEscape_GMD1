@@ -1,83 +1,99 @@
+using System;
+using Characters.Shared.Model;
 using UnityEngine;
 using UnityEngine.AI;
+using Weapons.Model;
+using Random = UnityEngine.Random;
 
 namespace Characters.Enemy.Scripts
 {
     public class EnemyMovementController : MonoBehaviour
     {
-        [SerializeField] private Transform pointA;
-        [SerializeField] private Transform pointB;
-        [SerializeField] private bool isMoving;
-        [SerializeField] private NavMeshAgent navMeshAgent;
+        [SerializeField] private LayerMask groundMask;
+        [SerializeField] private LayerMask targetMask;
+        [SerializeField] private float patrollingRange;
+        [SerializeField] private float sightRange;
+        [SerializeField] private float attackRange;
+        [SerializeField] private float rateOfFire;
 
-        private CharacterController _characterController;
-        private Camera _mainCamera;
-        private Plane _enemyPlane;
-        private Vector3 _enemyWalkingMovement;
-        private Vector3 _enemyRunningMovement;
-        private bool _isRunning;
+        private IWeapon _weapon;
+        private NavMeshAgent _navMeshAgent;
+        private Transform target;
+        private Vector3 _wayPoint;
+        private bool _isWayPointSet;
+        private bool _hasAttacked;
+        private bool _isInSight;
+        private bool _isInAttack;
 
         private void Awake()
         {
-            _characterController = GetComponent<CharacterController>();
+            target = GameObject.Find(EnemyTarget.Character_Soldier.ToString())
+                .transform;
+            _navMeshAgent = GetComponent<NavMeshAgent>();
+            _weapon = GetComponentInChildren<IWeapon>();
         }
 
         private void FixedUpdate()
         {
-            EnemyMove();
-            Gravity();
+            CheckTargetState();
+            EnemyBehavior();
         }
 
-        // Script the patrolling of the enemy based on navMesh
-        private void EnemyMove()
+        private void CheckTargetState()
         {
-            /*
-         * Check if the object is moving to create a loop between two points
-         * Set the object destination to PointA
-         * If the navPath is not ready yet
-         * Check if the remainingDistance is the same or less than the soppingDistance
-         * Then assign a new destination to PointB and set isMovingBack to false
-         */
-            if (isMoving)
-            {
-                navMeshAgent.SetDestination(pointA.position);
-                if (navMeshAgent.pathPending) return;
-                if (!(navMeshAgent.remainingDistance <=
-                      navMeshAgent.stoppingDistance)) return;
-                navMeshAgent.SetDestination(pointB.position);
-                isMoving = false;
-            }
-            else
-            {
-                navMeshAgent.SetDestination(pointB.position);
-                if (navMeshAgent.pathPending) return;
-                if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
-                {
-                    isMoving = true;
-                }
-            }
+            var position = transform.position;
+            _isInSight = Physics.CheckSphere(position, sightRange,
+                targetMask);
+            _isInAttack = Physics.CheckSphere(position, attackRange,
+                targetMask);
         }
 
-        /// <summary>
-        /// Handle the gravity since no rigidbody is used here,
-        /// instead relying on the character controller   
-        /// </summary>
-        private void Gravity()
+        private void EnemyBehavior()
         {
-            // Check if the enemy is above or on the ground
-            if (_characterController.isGrounded)
-            {
-                const float groundedGravity = -0.05f;
-                _enemyWalkingMovement.y = groundedGravity;
-                _enemyRunningMovement.y = groundedGravity;
-            }
-            else
-            {
-                // gravity constant
-                const float gravity = -9.8f;
-                _enemyWalkingMovement.y = gravity;
-                _enemyRunningMovement.y = gravity;
-            }
+            if (!_isInSight && !_isInAttack) Patrole();
+            if (_isInSight && !_isInAttack) Chase();
+            if (_isInSight && _isInAttack) Attack();
+        }
+
+        private void Patrole()
+        {
+            if (!_isWayPointSet) SetWayPoint();
+            if (_isWayPointSet) _navMeshAgent.SetDestination(_wayPoint);
+            var distanceBetween = transform.position - _wayPoint;
+            if (distanceBetween.magnitude < 1f) _isWayPointSet = false;
+        }
+
+        private void Chase()
+        {
+            _navMeshAgent.SetDestination(target.position);
+        }
+
+        private void Attack()
+        {
+            _navMeshAgent.SetDestination(transform.position);
+            transform.LookAt(target);
+            if (_hasAttacked) return;
+            _weapon.ShootWeapon();
+            _hasAttacked = true;
+            Invoke(nameof(ResetAttack), rateOfFire);
+        }
+
+        private void SetWayPoint()
+        {
+            var x = Random.Range(-patrollingRange, patrollingRange);
+            var z = Random.Range(-patrollingRange, patrollingRange);
+
+            var position = transform.position;
+            _wayPoint = new Vector3(position.x + x,
+                position.y, position.z + z);
+
+            if (Physics.Raycast(_wayPoint, -transform.up, 2f, groundMask))
+                _isWayPointSet = true;
+        }
+
+        private void ResetAttack()
+        {
+            _hasAttacked = false;
         }
     }
 }

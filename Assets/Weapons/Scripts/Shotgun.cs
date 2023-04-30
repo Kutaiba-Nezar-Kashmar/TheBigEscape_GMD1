@@ -14,9 +14,8 @@ namespace Weapons.Scripts
         [SerializeField] private GameObject projectile;
         [SerializeField] private int ammo;
         [SerializeField] private int magSize = 5;
-        [SerializeField] private int numberOfSlugs = 4;
 
-        private AudioManager _audioManager;
+         private AudioManager _audioManager;
 
         private void Awake()
         {
@@ -25,28 +24,25 @@ namespace Weapons.Scripts
 
         private void Start()
         {
-            _audioManager.GetComponent<AudioManager>();
+           // _audioManager.GetComponent<AudioManager>();
         }
 
         public void ShootWeapon()
         {
-            if (ammo <= 0) return;
-            _audioManager.PlaySfxAudio("Shotgun");
+            // if (ammo <= 0) return;
+            //_audioManager.PlaySfxAudio("Shotgun");
             ammo--;
             // Create new projectile object. in this case a slugs
-            for (var i = 0; i < numberOfSlugs; i++)
-            {
-                var slug = Instantiate(projectile,
-                    firingOrigin.transform.position,
-                    firingOrigin.transform.rotation);
-                var rigidbody = slug.GetComponent<Rigidbody>();
-                /*
-                * Apply force to the bullet to fire in the z-axes direction
-                * that is due to the weapon position on the character and animation of shooting
-                */
-                rigidbody.AddForce(firingOrigin.transform.right * projectileSpeed,
-                    ForceMode.Impulse);
-            }
+            var slug = Instantiate(projectile,
+                firingOrigin.transform.position,
+                firingOrigin.transform.rotation);
+            var rigidbody = slug.GetComponent<Rigidbody>();
+            /*
+            * Apply force to the bullet to fire in the z-axes direction
+            * that is due to the weapon position on the character and animation of shooting
+            */
+            rigidbody.AddForce(firingOrigin.transform.right * projectileSpeed,
+                ForceMode.Impulse);
         }
 
         public void ReloadWeapon()

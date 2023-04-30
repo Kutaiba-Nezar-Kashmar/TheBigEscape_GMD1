@@ -11,7 +11,7 @@ namespace Weapons.Scripts
         [SerializeField] private float fireRate = 25.0f;
         [SerializeField] private GameObject projectile;
         [SerializeField] private int ammo;
-        [SerializeField] private int magSize = 5;
+        [SerializeField] private int magSize = 10;
 
         private AudioManager _audioManager;
 
