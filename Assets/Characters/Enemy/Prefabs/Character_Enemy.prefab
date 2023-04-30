@@ -141,6 +141,8 @@ GameObject:
   - component: {fileID: -7016483526304546701}
   - component: {fileID: -5792781356227324679}
   - component: {fileID: -6444809423814714205}
+  - component: {fileID: 7751375216688468069}
+  - component: {fileID: -372000377249665416}
   m_Layer: 0
   m_Name: Character_Enemy
   m_TagString: Untagged
@@ -211,13 +213,8 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 64
-  targetMask:
-    serializedVersion: 2
-    m_Bits: 128
   patrollingRange: 5
-  sightRange: 20
-  attackRange: 12
-  rateOfFire: 1
+  aiStats: {fileID: 11400000, guid: 7e3b503450c0b1d44917a6ae48fee367, type: 2}
 --- !u!95 &-5792781356227324679
 Animator:
   serializedVersion: 5
@@ -251,6 +248,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthBar: {fileID: 0}
+--- !u!114 &7751375216688468069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247960077902890731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2db5ba5b142746d6b74c0ad4eb591db2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aiStats: {fileID: 11400000, guid: 7e3b503450c0b1d44917a6ae48fee367, type: 2}
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 128
+  sightRange: 20
+--- !u!114 &-372000377249665416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247960077902890731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcb93c5be92b474aa1779c867902b49b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 128
+  rateOfFire: 1
+  aiStats: {fileID: 11400000, guid: 7e3b503450c0b1d44917a6ae48fee367, type: 2}
+  attackRange: 12
 --- !u!1 &1643121398297608995
 GameObject:
   m_ObjectHideFlags: 0
