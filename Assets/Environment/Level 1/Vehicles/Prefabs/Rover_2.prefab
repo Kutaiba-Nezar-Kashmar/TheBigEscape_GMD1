@@ -424,6 +424,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6270689335654356676}
+  - component: {fileID: 629542600400105741}
   m_Layer: 0
   m_Name: Rover_2
   m_TagString: Untagged
@@ -453,6 +454,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &629542600400105741
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6651295578660686974}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.72876, y: 5.3016887, z: 6.760521}
+  m_Center: {x: 0.042211533, y: 2.1508443, z: -0.68917465}
 --- !u!1 &7367478183642075212
 GameObject:
   m_ObjectHideFlags: 0

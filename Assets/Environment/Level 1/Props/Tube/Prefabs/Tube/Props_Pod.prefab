@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5594760528626632358}
   - component: {fileID: 8794209128188070147}
   - component: {fileID: 6768833077968190921}
-  - component: {fileID: -8527075622079647919}
+  - component: {fileID: 3592411590800521247}
   m_Layer: 0
   m_Name: Props_Pod
   m_TagString: Untagged
@@ -88,8 +88,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &-8527075622079647919
-MeshCollider:
+--- !u!65 &3592411590800521247
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -98,7 +98,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 6839820945615005764, guid: 97706364574a7894f8837d12199b00e8, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.01809989, y: 0.018100722, z: 0.03612445}
+  m_Center: {x: -4.656613e-10, y: 0.00000041723243, z: 0.018081686}

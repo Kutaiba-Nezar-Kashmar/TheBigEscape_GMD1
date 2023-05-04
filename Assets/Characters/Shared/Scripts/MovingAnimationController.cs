@@ -6,6 +6,7 @@ namespace Characters.Shared.Scripts
     {
         private Animator _animator;
         private CharacterController _characterController;
+        private static readonly int MovingSpeed = Animator.StringToHash("MovingSpeed");
 
         private void Awake()
         {
@@ -23,7 +24,7 @@ namespace Characters.Shared.Scripts
             // Retrieve the speed attribute from the CharacterController
             var speed = _characterController.velocity
                 .magnitude;
-            _animator.SetFloat("MovingSpeed", speed);
+            _animator.SetFloat(MovingSpeed, speed);
         }
     }
 }

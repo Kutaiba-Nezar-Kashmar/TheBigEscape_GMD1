@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8334592759104379130}
   - component: {fileID: 4901517704281364319}
   - component: {fileID: 7197111917140927381}
-  - component: {fileID: 4295520908071949725}
+  - component: {fileID: 3462452369289411220}
   m_Layer: 0
   m_Name: FloorTile_Side
   m_TagString: Untagged
@@ -88,8 +88,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &4295520908071949725
-MeshCollider:
+--- !u!65 &3462452369289411220
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -98,7 +98,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -2159408869188112759, guid: 544a2286f91b7cd40a58b753422a8f68, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.02, y: 0.020000005, z: 0.0006845257}
+  m_Center: {x: 0, y: 0, z: 0.00014045415}

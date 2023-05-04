@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4428732634916315015}
   - component: {fileID: 781901513664679970}
   - component: {fileID: 3259805691543692520}
-  - component: {fileID: 5578487935845638095}
+  - component: {fileID: 1334872270039352218}
   m_Layer: 0
   m_Name: Spaceship_RaeTheRedPanda
   m_TagString: Untagged
@@ -84,8 +84,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &5578487935845638095
-MeshCollider:
+--- !u!65 &1334872270039352218
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -94,7 +94,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -740412794875660146, guid: 3bdcac9023a547f4789dea2b2160edc7, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.09948836, y: 0.11166162, z: 0.023500172}
+  m_Center: {x: 0, y: -0.014611741, z: 0.0076247784}
