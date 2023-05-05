@@ -18,16 +18,9 @@ namespace Environment.Level_1.Door.Double_Door.Scripts
 
         private void Update()
         {
-            if (Physics.CheckSphere(transform.position, doorSensorRange, player))
-            {
-                Debug.Log("TRUE");
-                _animator.SetBool(IsClose, true);
-            }
-            else
-            {
-                Debug.Log("FALSE");
-                _animator.SetBool(IsClose, false);
-            }
+            _animator.SetBool(IsClose, Physics.CheckSphere(transform.position,
+                doorSensorRange,
+                player));
         }
     }
 }

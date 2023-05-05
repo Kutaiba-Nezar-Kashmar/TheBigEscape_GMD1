@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Bullet_Prefab
   - gun_muzzle
+  - equipped_weapon
   layers:
   - Default
   - TransparentFX
