@@ -9,7 +9,7 @@ namespace HUD.AmmoIndecator.Scripts
 
         public void SetAmmo(int ammo, int magaSize)
         {
-            indicator.text = $"{ammo / magaSize}";
+            indicator.text = $"{ammo} / {magaSize}";
         }
     }
 }

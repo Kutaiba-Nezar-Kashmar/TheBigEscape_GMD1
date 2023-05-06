@@ -31,8 +31,8 @@ namespace Weapons.Scripts
 
         private void Shoot()
         {
-            _weapon.ShootWeapon();
             ammoManager.SetAmmo(playerStats.Ammo, _weapon.FetchWeaponMagSize());
+            _weapon.ShootWeapon();
         }
 
         private void Reload()
