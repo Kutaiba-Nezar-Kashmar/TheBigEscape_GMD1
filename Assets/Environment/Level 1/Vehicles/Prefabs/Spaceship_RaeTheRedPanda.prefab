@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 781901513664679970}
   - component: {fileID: 3259805691543692520}
   - component: {fileID: 1334872270039352218}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spaceship_RaeTheRedPanda
   m_TagString: Untagged
   m_Icon: {fileID: 0}
