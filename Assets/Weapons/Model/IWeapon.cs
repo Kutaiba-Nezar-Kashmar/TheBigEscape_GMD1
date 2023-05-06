@@ -6,5 +6,7 @@ namespace Weapons.Model
     {
         void ShootWeapon();
         void ReloadWeapon();
+
+        int FetchWeaponMagSize();
     }
 }

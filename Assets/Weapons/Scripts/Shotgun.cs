@@ -49,5 +49,10 @@ namespace Weapons.Scripts
         {
             ammo = magSize;
         }
+
+        public int FetchWeaponMagSize()
+        {
+            return magSize;
+        }
     }
 }

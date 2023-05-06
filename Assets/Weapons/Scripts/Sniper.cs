@@ -1,12 +1,15 @@
 ﻿using System;
 using Audio.Script;
+using Characters.Player.Scripts;
 using UnityEngine;
 using Weapons.Model;
 
 namespace Weapons.Scripts
 {
+    // For now, sniper is the only weapon the player can use and it cannot be equipped by the enemy 
     public class Sniper : MonoBehaviour, IWeapon
     {
+        [SerializeField] private PlayerStats playerStats;
         [SerializeField] private GameObject firingOrigin;
         [SerializeField] private float fireRate = 25.0f;
         [SerializeField] private GameObject projectile;
@@ -17,6 +20,7 @@ namespace Weapons.Scripts
 
         private void Awake()
         {
+            playerStats.Ammo = ammo;
             ammo = magSize;
         }
 
@@ -30,6 +34,7 @@ namespace Weapons.Scripts
             if (ammo <= 0) return;
             _audioManager.PlaySfxAudio("Sniper");
             ammo--;
+            playerStats.Ammo = ammo;
             // Create new projectile object. in this case a bullet
             var bullet = Instantiate(projectile,
                 firingOrigin.transform.position,
@@ -46,6 +51,11 @@ namespace Weapons.Scripts
         public void ReloadWeapon()
         {
             ammo = magSize;
+        }
+
+        public int FetchWeaponMagSize()
+        {
+            return magSize;
         }
     }
 }

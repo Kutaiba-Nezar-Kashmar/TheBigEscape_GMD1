@@ -2041,6 +2041,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bcd53ff22124f388ee4766bf5200cdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerStats: {fileID: 11400000, guid: 86d04f00c983ae04aa643cd17a451c6c, type: 2}
+  ammoManager: {fileID: 8659049073201114718, guid: bba3dc0feae9bf945a7735cf8fd9ac08, type: 3}
 --- !u!114 &8880015888228149935
 MonoBehaviour:
   m_ObjectHideFlags: 0

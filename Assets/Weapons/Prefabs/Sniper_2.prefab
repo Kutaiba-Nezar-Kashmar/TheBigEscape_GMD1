@@ -101,6 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b96985756fbb499386d1a6a77e14cf90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerStats: {fileID: 11400000, guid: 86d04f00c983ae04aa643cd17a451c6c, type: 2}
   firingOrigin: {fileID: 7547761775057402431, guid: ece37b103c69f914a9836e8e5e10ca4b, type: 3}
   fireRate: 25
   projectile: {fileID: 1060564574903786470, guid: 7a64d5ad19b94ca40bf1c2d98f629b45, type: 3}

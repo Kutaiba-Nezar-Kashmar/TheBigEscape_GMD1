@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections;
+using Characters.Player.Scripts;
+using HUD.AmmoIndecator.Scripts;
 using UnityEngine;
 using Weapons.Model;
 
@@ -7,6 +9,8 @@ namespace Weapons.Scripts
 {
     public class WeaponManager : MonoBehaviour
     {
+        [SerializeField] private PlayerStats playerStats;
+        [SerializeField] private AmmoIndicatorManager ammoManager;
         private IFireInput _fireInput;
         private IReloadInput _reloadInput;
         private IWeapon _weapon;
@@ -20,6 +24,7 @@ namespace Weapons.Scripts
 
         private void Start()
         {
+            ammoManager.SetAmmo(playerStats.Ammo, _weapon.FetchWeaponMagSize());
             _fireInput.OnFire += Shoot;
             _reloadInput.OnReload += Reload;
         }
@@ -27,6 +32,7 @@ namespace Weapons.Scripts
         private void Shoot()
         {
             _weapon.ShootWeapon();
+            ammoManager.SetAmmo(playerStats.Ammo, _weapon.FetchWeaponMagSize());
         }
 
         private void Reload()

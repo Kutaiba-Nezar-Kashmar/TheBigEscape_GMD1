@@ -6,12 +6,7 @@ namespace HUD.HealthIndicator.Scripts
 {
     public class HealthIndicatorManager : MonoBehaviour
     {
-        private TextMeshProUGUI indicator;
-
-        private void Start()
-        {
-            indicator = GetComponentInChildren<TextMeshProUGUI>();
-        }
+        [SerializeField] private TextMeshProUGUI indicator;
 
         public void SetHealth(int hp, int maxHp)
         {

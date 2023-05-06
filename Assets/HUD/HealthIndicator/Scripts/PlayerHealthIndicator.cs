@@ -17,6 +17,7 @@ namespace HUD.HealthBar.Scripts
         private int _maxHp;
         private void Start()
         {
+            playerStats.HitPoints = hp;
             _maxHp = hp;
             hpManager.SetHealth(hp, _maxHp);
         }
