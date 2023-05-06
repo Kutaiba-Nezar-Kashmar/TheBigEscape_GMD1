@@ -2,6 +2,7 @@
 using Characters.Shared.Model;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Rendering.UI;
 using Weapons.Model;
 
 namespace Characters.Enemy.Scripts
@@ -28,6 +29,7 @@ namespace Characters.Enemy.Scripts
         private void Start()
         {
             aiStats.AttackRange = attackRange;
+            aiStats.HasAttacked = false;
         }
 
         private void FixedUpdate()

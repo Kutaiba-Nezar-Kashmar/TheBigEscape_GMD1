@@ -15,12 +15,12 @@ namespace Projectiles.Slug.Scripts
 
         private void OnCollisionEnter(Collision collision)
         {
-            /*// When the bullet collide with a damageable object, then set the damage taken to the bullet damage
+            // When the bullet collide with a damageable object, then set the damage taken to the bullet damage
             var hit = collision.gameObject.GetComponent<IDamageable>();
             if (hit != null)
             {
                 collision.gameObject.GetComponent<IDamageable>().ReceivedDamage(damage);
-            }*/
+            }
             // Destroy the bullet when colliding with colliders
             Destroy(gameObject);
         }
