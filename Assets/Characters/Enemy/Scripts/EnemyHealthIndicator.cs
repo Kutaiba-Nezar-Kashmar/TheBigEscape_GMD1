@@ -1,4 +1,4 @@
-using Characters.HealthBar.Scripts;
+using Characters.Enemy.HealthBar.Scripts;
 using Projectiles.Shared.Scripts;
 using UnityEngine;
 
