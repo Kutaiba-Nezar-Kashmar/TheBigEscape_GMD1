@@ -797,6 +797,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitPoint: 100
+  playerStats: {fileID: 11400000, guid: 86d04f00c983ae04aa643cd17a451c6c, type: 2}
   HealthBar: {fileID: 5204468045913103372, guid: b04e05c39e41fdf48b4414097f9b5a79, type: 3}
 --- !u!114 &4758384004047914857
 MonoBehaviour:
