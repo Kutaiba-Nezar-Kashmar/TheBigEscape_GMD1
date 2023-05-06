@@ -8,6 +8,7 @@ TagManager:
   - gun_muzzle
   - equipped_weapon
   - game_over_menu
+  - NPC
   layers:
   - Default
   - TransparentFX
