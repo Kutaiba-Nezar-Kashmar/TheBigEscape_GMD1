@@ -2126,8 +2126,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStats: {fileID: 11400000, guid: 86d04f00c983ae04aa643cd17a451c6c, type: 2}
-  hud: {fileID: 7310832737661295417, guid: cb3e6abfc446864498a723bbf04392d3, type: 3}
   hp: 100
+  hpManager: {fileID: 7559102031075240565, guid: f1e05774ff36c0648bc336f412c7bc66, type: 3}
 --- !u!82 &2286513226095924616
 AudioSource:
   m_ObjectHideFlags: 0

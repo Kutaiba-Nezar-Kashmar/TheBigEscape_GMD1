@@ -28,8 +28,7 @@ namespace Weapons.Scripts
         }
 
         public void ShootWeapon()
-        {
-            Debug.Log("SHOOTING");
+        {   
             // if (ammo <= 0) return;
             //_audioManager.PlaySfxAudio("Shotgun");
             ammo--;
