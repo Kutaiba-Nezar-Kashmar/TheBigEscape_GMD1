@@ -1,18 +1,15 @@
-﻿using System;
-using Characters.Enemy.HealthBar.Scripts;
-using Characters.Player.Scripts;
-using HUD.HealthIndicator.Scripts;
+﻿using Characters.Player.Scripts;
 using Projectiles.Shared.Scripts;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace HUD.HealthBar.Scripts
+namespace HUD.HealthIndicator.Scripts
 {
     public class PlayerHealthIndicator : MonoBehaviour, IDamageable
     {
         [SerializeField] private PlayerStats playerStats;
         [SerializeField] private int hp;
         [SerializeField] private HealthIndicatorManager hpManager;
+        [SerializeField] private GameObject gameOverMenu;
 
         private int _maxHp;
         private void Start()
@@ -29,6 +26,7 @@ namespace HUD.HealthBar.Scripts
             if (hp <= 0)
             {
                 Destroy(gameObject);
+                gameOverMenu.SetActive(true);
             }
         }
     }
