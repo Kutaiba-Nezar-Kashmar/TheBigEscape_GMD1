@@ -1,4 +1,5 @@
-﻿using Audio.Script;
+﻿using System;
+using Audio.Script;
 using Characters.Player.Model;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -9,8 +10,11 @@ namespace Scenes.Scripts
     {
         [SerializeField] private GameObject menu;
         [SerializeField] private AudioMixer audioMixer;
+        [SerializeField] private GameObject doors;
+        [SerializeField] private AudioSource intro;
         private IPauseInput _pauseInput;
         private AudioManager _audioManager;
+        private Animator doorAnimator;
 
         private void Awake()
         {
@@ -20,9 +24,18 @@ namespace Scenes.Scripts
 
         private void Start()
         {
+            doorAnimator = doors.GetComponent<Animator>();
             _audioManager = GetComponent<AudioManager>();
             _audioManager.PlayMusicAudio("Alarm");
             _pauseInput.OnPause += Pause;
+        }
+
+        private void Update()
+        {
+            if (intro.isPlaying)
+            {
+                doorAnimator.SetBool("IsClose", false);
+            }
         }
 
         private void LoadSoundSettings()

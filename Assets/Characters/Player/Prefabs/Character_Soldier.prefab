@@ -2094,6 +2094,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menu: {fileID: 6420014593945146967, guid: b22a13c186bb24044b3e3b441e7aa096, type: 3}
   audioMixer: {fileID: 24100000, guid: acffa729d658476428de5bc4768c905c, type: 2}
+  doors: {fileID: 2348199548614364460, guid: 866a466c34a34734badcc275b8d8252c, type: 3}
+  intro: {fileID: 5375421487705718350, guid: 0167f1f5f5668174e9f39e2c762c086a, type: 3}
 --- !u!114 &4941283705889110381
 MonoBehaviour:
   m_ObjectHideFlags: 0
