@@ -21,7 +21,6 @@ namespace Characters.Shared.Scripts
 
         private void MovingAnimation()
         {
-            // Retrieve the speed attribute from the CharacterController
             var speed = _characterController.velocity
                 .magnitude;
             _animator.SetFloat(MovingSpeed, speed);

@@ -1,5 +1,4 @@
-﻿using System;
-using Characters.Player.Scripts;
+﻿using Characters.Player.Scripts;
 using TMPro;
 using UnityEngine;
 

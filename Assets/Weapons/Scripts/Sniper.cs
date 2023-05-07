@@ -1,5 +1,4 @@
-﻿using System;
-using Audio.Script;
+﻿using Audio.Script;
 using Characters.Player.Scripts;
 using UnityEngine;
 using Weapons.Model;
@@ -41,9 +40,9 @@ namespace Weapons.Scripts
                 firingOrigin.transform.rotation);
             var rigidbody = bullet.GetComponent<Rigidbody>();
             /*
-                 * Apply force to the bullet to fire in the z-axes direction
-                 * that is due to the weapon position on the character and animation of shooting
-                 */
+             * Apply force to the bullet to fire in the z-axes direction
+             * that is due to the weapon position on the character and animation of shooting
+             */
             rigidbody.AddForce(firingOrigin.transform.right * fireRate,
                 ForceMode.Impulse);
         }

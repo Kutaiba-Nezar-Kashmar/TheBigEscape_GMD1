@@ -25,9 +25,9 @@ namespace Characters.Enemy.HealthBar.Scripts
             slider.value = health;
 
             /*
-         * Use normalizedValue here to to read values from 0 to 1 independently of the max health.
-         * That is because gradient is between 0 and 1 
-         */
+            * Use normalizedValue here to to read values from 0 to 1 independently of the max health.
+            * That is because gradient is between 0 and 1 
+            */
             fill.color = gradient.Evaluate(slider.normalizedValue);
             text.SetText($"Health {slider.value}");
         }

@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Audio.Model;
 using UnityEngine;
-using UnityEngine.Audio;
 
 namespace Audio.Script
 {

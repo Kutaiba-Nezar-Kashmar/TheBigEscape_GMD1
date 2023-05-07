@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace Weapons.Model
+﻿namespace Weapons.Model
 {
     public interface IWeapon
     {

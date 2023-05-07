@@ -1,5 +1,4 @@
 using Characters.Shared.Model;
-using Input;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,10 +9,11 @@ namespace Characters.Player.Scripts
         [SerializeField] private float walkingSpeed = 3f;
         [SerializeField] private float runningSpeed = 6f;
         [SerializeField] private float rotationSpeed = 10f;
-        private CharacterController _characterController;
+
         public bool IsMoving { get; set; }
         public bool IsRunning { get; set; }
 
+        private CharacterController _characterController;
         private Camera _mainCamera;
         private Plane _playerPlane;
         private Vector3 _playerWalkingMovement;
@@ -91,13 +91,17 @@ namespace Characters.Player.Scripts
         {
             if (isRunning)
             {
-                _characterController.Move(
-                    _playerRunningMovement * Time.deltaTime);
+                _characterController.Move
+                (
+                    _playerRunningMovement * Time.deltaTime
+                );
             }
             else
             {
-                _characterController.Move(
-                    _playerWalkingMovement * Time.deltaTime);
+                _characterController.Move
+                (
+                    _playerWalkingMovement * Time.deltaTime
+                );
             }
         }
 

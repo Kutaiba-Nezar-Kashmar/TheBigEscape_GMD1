@@ -1655,7 +1655,6 @@ GameObject:
   - component: {fileID: 4691873186111004559}
   - component: {fileID: 4691873186111004555}
   - component: {fileID: 4691873186111004553}
-  - component: {fileID: 874450812429102667}
   - component: {fileID: 4691873186111004558}
   - component: {fileID: -7978164164470395156}
   - component: {fileID: 4284106030554334498}
@@ -1886,7 +1885,19 @@ MonoBehaviour:
     m_ActionId: 84637346-08a7-40a5-9c39-c081c3e7e6ac
     m_ActionName: Player/Reload[/Keyboard/r]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4284106030554334498}
+        m_TargetAssemblyTypeName: Characters.Player.Scripts.PlayerNPCInteract, Assembly-CSharp
+        m_MethodName: OnInteract
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: e6110f47-41f1-4660-aa30-8b960c0c8a40
     m_ActionName: Player/Interact[/Keyboard/e]
   - m_PersistentCalls:
@@ -1954,18 +1965,6 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!114 &874450812429102667
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5610790365576471269}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ecd21c2d3eb49fbb9a8d5c51b3fa8fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4691873186111004558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2087,7 +2086,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5610790365576471269}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ebbb4ce4eabb4934a5d4e723ce43f368, type: 3}
   m_Name: 

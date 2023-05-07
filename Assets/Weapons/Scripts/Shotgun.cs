@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using Audio.Script;
+﻿using Audio.Script;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Weapons.Model;
 
 namespace Weapons.Scripts
@@ -14,23 +11,18 @@ namespace Weapons.Scripts
         [SerializeField] private GameObject projectile;
         [SerializeField] private int ammo;
         [SerializeField] private int magSize = 5;
+        [SerializeField] private AudioManager audioManager;
 
-         private AudioManager _audioManager;
 
         private void Awake()
         {
             ammo = magSize;
         }
 
-        private void Start()
-        {
-           // _audioManager.GetComponent<AudioManager>();
-        }
-
         public void ShootWeapon()
-        {   
+        {
             // if (ammo <= 0) return;
-            //_audioManager.PlaySfxAudio("Shotgun");
+            audioManager.PlaySfxAudio("Shotgun");
             ammo--;
             // Create new projectile object. in this case a slugs
             var slug = Instantiate(projectile,
@@ -45,6 +37,10 @@ namespace Weapons.Scripts
                 ForceMode.Impulse);
         }
 
+        /// <summary>
+        /// For now, the NPC/Enemy does not need to reload and the shotgun (for now)
+        /// is a NPC/Enemy weapon only 
+        /// </summary>
         public void ReloadWeapon()
         {
             ammo = magSize;

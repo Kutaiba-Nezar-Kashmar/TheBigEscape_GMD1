@@ -1,4 +1,3 @@
-using Characters.Player.Scripts;
 using Characters.Shared.Model;
 using UnityEngine;
 

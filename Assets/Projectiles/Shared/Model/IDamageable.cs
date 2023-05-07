@@ -1,4 +1,4 @@
-﻿namespace Projectiles.Shared.Scripts
+﻿namespace Projectiles.Shared.Model
 {
     public interface IDamageable
     {

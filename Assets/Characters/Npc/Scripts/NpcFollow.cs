@@ -1,5 +1,4 @@
 ﻿using Characters.Shared.Model;
-using Characters.Shared.Scripts;
 using UnityEngine;
 
 namespace Characters.Npc.Scripts
@@ -12,10 +11,11 @@ namespace Characters.Npc.Scripts
         {
             // Face the object to follow
             transform.LookAt(target);
-            
+
             // Follow the object on with a given distance
             transform.position = target.position -
-                                 transform.forward * distanceFromTarget;
+                                 transform.forward *
+                                 distanceFromTarget;
         }
     }
 }

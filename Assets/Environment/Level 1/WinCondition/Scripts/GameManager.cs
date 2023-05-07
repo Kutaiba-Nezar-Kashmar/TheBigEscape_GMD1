@@ -1,6 +1,4 @@
-﻿using System;
-using TMPro;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Environment.Level_1.WinCondition.Scripts
 {
@@ -12,9 +10,14 @@ namespace Environment.Level_1.WinCondition.Scripts
 
         private void Update()
         {
-            if (Physics.CheckSphere(transform.position,
+            if (
+                Physics.CheckSphere
+                (
+                    transform.position,
                     winAriaRange,
-                    escapePoint))
+                    escapePoint
+                )
+            )
             {
                 Time.timeScale = 0;
                 winText.SetActive(true);

@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Environment.Level_1.Door.Double_Door.Scripts
 {
@@ -18,9 +17,16 @@ namespace Environment.Level_1.Door.Double_Door.Scripts
 
         private void Update()
         {
-            _animator.SetBool(IsClose, Physics.CheckSphere(transform.position,
-                doorSensorRange,
-                player));
+            _animator.SetBool
+            (
+                IsClose,
+                Physics.CheckSphere
+                (
+                    transform.position,
+                    doorSensorRange,
+                    player
+                )
+            );
         }
     }
 }

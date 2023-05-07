@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using Characters.Player.Scripts;
+﻿using Characters.Player.Scripts;
 using HUD.AmmoIndecator.Scripts;
 using UnityEngine;
 using Weapons.Model;
@@ -11,6 +9,7 @@ namespace Weapons.Scripts
     {
         [SerializeField] private PlayerStats playerStats;
         [SerializeField] private AmmoIndicatorManager ammoManager;
+        
         private IFireInput _fireInput;
         private IReloadInput _reloadInput;
         private IWeapon _weapon;

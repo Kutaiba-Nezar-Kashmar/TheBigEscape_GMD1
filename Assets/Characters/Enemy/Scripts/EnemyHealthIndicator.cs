@@ -1,6 +1,6 @@
 using Characters.Enemy.HealthBar.Scripts;
 using Characters.Player.Scripts;
-using Projectiles.Shared.Scripts;
+using Projectiles.Shared.Model;
 using UnityEngine;
 
 namespace Characters.Enemy.Scripts

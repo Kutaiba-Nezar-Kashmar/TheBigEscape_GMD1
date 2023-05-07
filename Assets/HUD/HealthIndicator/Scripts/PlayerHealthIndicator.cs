@@ -1,5 +1,5 @@
 ﻿using Characters.Player.Scripts;
-using Projectiles.Shared.Scripts;
+using Projectiles.Shared.Model;
 using UnityEngine;
 
 namespace HUD.HealthIndicator.Scripts

@@ -1,8 +1,7 @@
-using System;
 using UnityEngine;
 using UnityEngine.Audio;
 
-namespace Menu.Scripts
+namespace Menu.MainMenu.Scripts
 {
     public class OptionsMenuManager : MonoBehaviour
     {

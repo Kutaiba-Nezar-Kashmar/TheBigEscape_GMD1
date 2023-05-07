@@ -1,5 +1,4 @@
-﻿using System;
-using Audio.Script;
+﻿using Audio.Script;
 using Characters.Player.Model;
 using UnityEngine;
 using UnityEngine.Audio;

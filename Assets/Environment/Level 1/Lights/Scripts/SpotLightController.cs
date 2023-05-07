@@ -2,38 +2,40 @@ using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class SpotLightController : MonoBehaviour
+namespace Environment.Level_1.Lights.Scripts
 {
-    [SerializeField] private bool isFlicker = false;
-    private float timer;
-    private Light _light;
-
-    private void Start()
+    public class SpotLightController : MonoBehaviour
     {
-        _light = gameObject.GetComponent<Light>();
-    }
+        [SerializeField] private bool isFlicker = false;
+        private float timer;
+        private Light _light;
 
-    private void Update()
-    {
-        if (!isFlicker)
+        private void Start()
         {
-            // Coroutine to implement flickering lights
-            StartCoroutine(FlickerLight());
+            _light = gameObject.GetComponent<Light>();
         }
-    }
 
-    /**
-     * Wait for time intervals to switch the lights on and off.
-     */
-    private IEnumerator FlickerLight()
-    {
-        isFlicker = true;
-        _light.enabled = false;
-        timer = Random.Range(1f, 4f);
-        yield return new WaitForSeconds(timer);
-        _light.enabled = true;
-        timer = Random.Range(1f, 4f);
-        yield return new WaitForSeconds(timer);
-        isFlicker = false;
+        private void Update()
+        {
+            if (!isFlicker)
+            {
+                StartCoroutine(FlickerLight());
+            }
+        }
+
+        /**
+        * Wait for time intervals to switch the lights on and off.
+        */
+        private IEnumerator FlickerLight()
+        {
+            isFlicker = true;
+            _light.enabled = false;
+            timer = Random.Range(1f, 4f);
+            yield return new WaitForSeconds(timer);
+            _light.enabled = true;
+            timer = Random.Range(1f, 4f);
+            yield return new WaitForSeconds(timer);
+            isFlicker = false;
+        }
     }
 }

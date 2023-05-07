@@ -13,7 +13,6 @@ namespace Characters.Shared.Scripts
             _animator = GetComponent<Animator>();
             _playerInput = GetComponent<PlayerInput>();
             
-            // Bind shooting animation the the tate of the Fire event
             _playerInput.actions["Fire"].performed += Fire;
             _playerInput.actions["Fire"].canceled += StopFire;
         }
