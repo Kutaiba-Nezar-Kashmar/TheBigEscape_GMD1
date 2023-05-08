@@ -7,7 +7,7 @@ using Weapons.Model;
 
 namespace Characters.Enemy.Scripts
 {
-    public class EnemyShootingController : MonoBehaviour
+    public class AIShootingController : MonoBehaviour
     {
         [SerializeField] private LayerMask targetMask;
         [SerializeField] private float rateOfFire;

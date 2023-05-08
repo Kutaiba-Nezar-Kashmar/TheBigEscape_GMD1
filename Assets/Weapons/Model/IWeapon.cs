@@ -4,7 +4,6 @@
     {
         void ShootWeapon();
         void ReloadWeapon();
-
         int FetchWeaponMagSize();
     }
 }

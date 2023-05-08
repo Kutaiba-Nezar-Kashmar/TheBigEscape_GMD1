@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 
 namespace Characters.Enemy.Scripts
 {
-    public class EnemyMovementController : MonoBehaviour
+    public class AIMovementController : MonoBehaviour
     {
         [SerializeField] private LayerMask groundMask;
         [SerializeField] private float patrollingRange;
