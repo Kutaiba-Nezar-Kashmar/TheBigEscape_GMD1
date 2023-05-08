@@ -1667,9 +1667,9 @@ GameObject:
   - component: {fileID: -4478779177416655524}
   - component: {fileID: 4941283705889110381}
   - component: {fileID: -1124309529351178771}
-  - component: {fileID: 6027630548752237573}
   - component: {fileID: 2286513226095924616}
   - component: {fileID: -9058903787728551512}
+  - component: {fileID: 6027630548752237573}
   m_Layer: 7
   m_Name: Character_Soldier
   m_TagString: Untagged
@@ -2086,7 +2086,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5610790365576471269}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ebbb4ce4eabb4934a5d4e723ce43f368, type: 3}
   m_Name: 
@@ -2133,23 +2133,6 @@ MonoBehaviour:
   hp: 100
   hpManager: {fileID: 7559102031075240565, guid: f1e05774ff36c0648bc336f412c7bc66, type: 3}
   gameOverMenu: {fileID: 5058172533765447708, guid: 2032e8a869ab5b84aa47e3da2aee068b, type: 3}
---- !u!114 &6027630548752237573
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5610790365576471269}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ade6e657f1e644e0a16e942656a8eb46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  escapePoint:
-    serializedVersion: 2
-    m_Bits: 256
-  winAriaRange: 1
-  winText: {fileID: 482487846925868584, guid: 7855e79fb843a3341bb6a51cdab2b89b, type: 3}
 --- !u!82 &2286513226095924616
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2342,6 +2325,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6027630548752237573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5610790365576471269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ade6e657f1e644e0a16e942656a8eb46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  escapePoint:
+    serializedVersion: 2
+    m_Bits: 256
+  winAriaRange: 1
+  winText: {fileID: 482487846925868584, guid: 7855e79fb843a3341bb6a51cdab2b89b, type: 3}
 --- !u!1 &5815927642999841265
 GameObject:
   m_ObjectHideFlags: 0

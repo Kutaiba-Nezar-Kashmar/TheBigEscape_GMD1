@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 namespace Characters.Enemy.Scripts
 {
-    public class AIChasingController : MonoBehaviour
+    public class EnemyChasingController : MonoBehaviour
     {
         [SerializeField] private AIStats aiStats;
         [SerializeField] private LayerMask targetMask;
