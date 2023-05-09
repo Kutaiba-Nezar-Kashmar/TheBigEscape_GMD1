@@ -1,5 +1,6 @@
 # TheBigEscape_GMD1
-Game development (GMD1) course assignment  
+Game development (GMD1) course assignment <br/>
+Individual project: Kutaiba Nezar kashmar 291597
 
 ## Game demo Link:
 https://youtu.be/bwK-40mAk8A
